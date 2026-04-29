@@ -28,10 +28,11 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between mt-6">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <div className="text-3xl font-black tracking-tighter flex flex-col leading-none">
-            <span className={`${scrolled ? '!text-primary' : '!text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]'}`}>GCS GROUP</span>
-            <span className="text-[#e11d48] text-sm tracking-[0.4em] font-black">SOLAR</span>
-          </div>
+          <img 
+            src="/loo.png" 
+            alt="GCS SOLAR" 
+            className={`h-16 md:h-20 w-auto transition-all duration-300 ${scrolled ? '' : 'brightness-0 invert'}`} 
+          />
         </Link>
 
         {/* Desktop Nav */}

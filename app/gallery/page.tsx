@@ -19,7 +19,7 @@ export default function GalleryPage() {
       <Navbar />
       
       {/* Page Header with increased top padding to clear Fixed Navbar */}
-      <section className="pt-64 pb-32 bg-premium-gradient text-white">
+      <section className="!pt-32 !pb-16 bg-premium-gradient text-white">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -29,14 +29,14 @@ export default function GalleryPage() {
             <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 drop-shadow-2xl">
               Our Gallery
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-medium leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/80  mx-auto font-medium leading-relaxed">
               Take a visual tour of our successful installations and high-tech solar modules across the country.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="!py-24">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {images.map((img, i) => (

@@ -34,8 +34,8 @@ const AboutUs = () => {
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl z-0"></div>
             <div className="absolute -top-10 -left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl z-0"></div>
             
-            <div className="absolute bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-xl z-20 hidden md:block border border-border animate-bounce-slow">
-              <div className="text-4xl font-bold text-primary mb-1">10+</div>
+            <div className="absolute bottom-10 -left-0 bg-white !px-4 !py-2 rounded-3xl shadow-xl z-20 hidden md:block border border-border animate-bounce-slow text-center">
+              <div className="text-4xl font-bold text-secondary mb-1">10+</div>
               <div className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">
                 Years of Excellence
               </div>
@@ -76,7 +76,7 @@ const AboutUs = () => {
             <div className="mt-12">
               <a
                 href="#contact"
-                className="bg-primary text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-opacity-90 transition-all hover-lift inline-block"
+                className="bg-secondary text-white !px-10 !py-4 rounded-full text-lg font-bold hover:bg-opacity-90 transition-all hover-lift inline-block"
               >
                 Learn More About Us
               </a>
