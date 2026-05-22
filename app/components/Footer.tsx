@@ -7,12 +7,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white pt-24 pb-12 relative">
+    <footer className="bg-primary text-white !pt-24 pb-12 relative">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2">
-              <img src="/loo.png" alt="GCS SOLAR" className="h-16 w-auto brightness-0 invert" />
+              <img src="/loo.png" alt="GCS SOLAR" className="h-16 w-auto " />
             </Link>
             <p className="text-white/60 leading-relaxed text-sm">
               GCS Group Solar Was established in 2015 in Gurgaon, India, With a focus on developing Solar as Sustainable Energy alternative in india.we've been at the forefront of India's sustainable energy revolution,...
@@ -34,9 +34,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 relative inline-block uppercase tracking-tight">
+            <h4 className="text-xl font-bold !mb-8 relative inline-block uppercase tracking-tight">
               Quick Links
-              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-secondary rounded-full"></span>
+              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-[#e11d48] rounded-full"></span>
             </h4>
             <ul className="flex flex-col gap-4 text-sm font-medium">
               <li><Link href="/" className="text-white/60 hover:text-secondary transition-colors">Home</Link></li>
@@ -49,9 +49,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 relative inline-block uppercase tracking-tight">
+            <h4 className="text-xl font-bold !mb-8 relative inline-block uppercase tracking-tight">
               EPC
-              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-secondary rounded-full"></span>
+              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-[#e11d48] rounded-full"></span>
             </h4>
             <ul className="flex flex-col gap-4 text-sm font-bold uppercase tracking-widest">
               <li><Link href="#" className="text-white/60 hover:text-secondary transition-colors">RESIDENTIAL</Link></li>
@@ -61,27 +61,27 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xl font-bold mb-8 relative inline-block uppercase tracking-tight">
+            <h4 className="text-xl font-bold !mb-8 relative inline-block uppercase tracking-tight">
               Contact Info
-              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-secondary rounded-full"></span>
+              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-[#e11d48] rounded-full"></span>
             </h4>
             <ul className="flex flex-col gap-6">
               <li className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-secondary flex-shrink-0" />
+                <MapPin className="w-6 h-6 text-[#e11d48] flex-shrink-0" />
                 <span className="text-white/60 text-sm">
                   Unit No.221, JMD Megapolis, Sector 48 Gurgaon -122014
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <Phone className="w-6 h-6 text-secondary flex-shrink-0" />
+                <Phone className="w-6 h-6 text-[#e11d48] flex-shrink-0" />
                 <span className="text-white/60 text-sm font-bold">+91-8800012625</span>
               </li>
               <li className="flex items-center gap-4">
-                <Mail className="w-6 h-6 text-secondary flex-shrink-0" />
+                <Mail className="w-6 h-6 text-[#e11d48] flex-shrink-0" />
                 <span className="text-white/60 text-sm font-bold">info@gcsgroupsolar.com</span>
               </li>
               <li className="flex items-center gap-4">
-                <Mail className="w-6 h-6 text-secondary flex-shrink-0" />
+                <Mail className="w-6 h-6 text-[#e11d48] flex-shrink-0" />
                 <span className="text-white/60 text-sm font-bold">sales@gcsgroupsolar.com</span>
               </li>
             </ul>
@@ -102,6 +102,25 @@ const Footer = () => {
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" className="w-9 h-9 brightness-0 invert" />
         </a>
       </div>
+
+      {/* Floating "Enquire Now" Vertical Tab on Right Edge */}
+      <Link
+        href="/contact"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] bg-[#e67e22] text-white font-bold uppercase tracking-wider py-5 px-3 rounded-l-lg shadow-2xl hover:bg-[#d35400] hover:pl-5 transition-all duration-300 cursor-pointer flex items-center justify-center text-xs"
+        style={{ writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}
+      >
+        Enquire Now
+      </Link>
+
+      {/* Floating Chat Bubble Widget on Bottom Right */}
+      <a
+        href="https://wa.me/918800012625"
+        className="fixed right-6 bottom-6 z-[100] w-14 h-14 bg-black rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 hover:bg-neutral-900 transition-all duration-300 cursor-pointer"
+      >
+        <svg className="w-7 h-7 fill-white text-black" viewBox="0 0 24 24">
+          <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
+        </svg>
+      </a>
     </footer>
   );
 };

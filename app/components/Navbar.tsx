@@ -1,18 +1,38 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const productItems = [
+  { name: "Solar PV Module", href: "/products/solar-pv-module" },
+  { name: "TOPCon Solar Panel", href: "/products/topcon-solar-panel" },
+  { name: "Mono PERC Module", href: "/products/mono-perc-module" },
+];
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setProductsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const navLinks = [
@@ -23,37 +43,119 @@ const Navbar = () => {
     { name: "Dealers/Distributors", href: "/dealers" },
   ];
 
+  const showScrolled = scrolled || !isHome;
+
+  const linkClass = `text-sm font-black uppercase tracking-[0.2em] relative group py-2 transition-all duration-300 ${showScrolled ? "!text-primary" : "!text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+    }`;
+
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-4 shadow-xl' : 'bg-transparent py-8'}`}>
-      <div className="container-custom flex items-center justify-between mt-6">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${showScrolled ? "glass py-3 md:py-3.5 shadow-md" : "bg-transparent py-5 md:py-6"
+        }`}
+    >
+      <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <img 
-            src="/loo.png" 
-            alt="GCS SOLAR" 
-            className={`h-16 md:h-20 w-auto transition-all duration-300 ${scrolled ? '' : 'brightness-0 invert'}`} 
+          <img
+            src="/loo.png"
+            alt="GCS SOLAR"
+            className={`h-12 md:h-14 w-auto transition-all duration-300 ${showScrolled ? "" : "brightness-0 invert"
+              }`}
           />
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`text-sm font-black uppercase tracking-[0.2em] relative group py-2 transition-all duration-300 ${
-                scrolled ? '!text-primary' : '!text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]'
-              }`}
+
+
+
+          {/* Products Dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              className={`${linkClass} flex items-center gap-2 cursor-pointer bg-transparent border-none outline-none`}
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
+              onClick={() => setProductsOpen((v) => !v)}
+              aria-expanded={productsOpen}
+              aria-haspopup="true"
             >
+              <span
+                className={`transition-colors duration-300 ${productsOpen
+                  ? "text-[#e11d48]"
+                  : showScrolled
+                    ? "text-primary"
+                    : "text-white"
+                  }`}
+              >
+                Products
+              </span>
+              {/* Chevron */}
+              <svg
+                className={`w-3 h-3 transition-transform duration-300 ${productsOpen ? "rotate-180" : ""
+                  } ${showScrolled ? "text-primary" : "text-white"} ${productsOpen ? "!text-[#e11d48]" : ""
+                  }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={3}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <span
+                className={`absolute bottom-0 left-0 h-1 bg-[#e11d48] transition-all duration-500 ${productsOpen ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+              />
+            </button>
+
+            {/* Dropdown Panel */}
+            <div
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
+              className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 transition-all duration-300 origin-top ${productsOpen
+                ? "opacity-100 scale-y-100 pointer-events-auto"
+                : "opacity-0 scale-y-95 pointer-events-none"
+                }`}
+            >
+              {/* Arrow tip */}
+              <div className="bg-white rounded-2xl shadow-[0_15px_50px_rgba(10,37,64,0.15)] overflow-hidden border border-gray-100 !p-2 space-y-1">
+                {productItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setProductsOpen(false)}
+                    className="flex items-center justify-between !px-5 !py-3.5 rounded-xl text-sm font-black text-[#0a2540] hover:text-white hover:bg-[#e11d48] transition-all duration-300 group"
+                  >
+                    <span className="tracking-wide uppercase text-[12px]">{item.name}</span>
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-50 group-hover:bg-[#f3a323]/10 transition-colors duration-300">
+                      <svg
+                        className="w-3 h-3 text-gray-400 group-hover:text-[#f3a323] transition-all duration-300 transform group-hover:translate-x-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={3}
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Rest of nav links */}
+          {navLinks.slice(1).map((link) => (
+            <Link key={link.name} href={link.href} className={linkClass}>
               {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#e11d48] transition-all duration-500 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#e11d48] transition-all duration-500 group-hover:w-full" />
             </Link>
           ))}
-          
-          <Link 
-            href="/contact" 
-            className="btn-primary !px-10 !py-3.5 !rounded-lg"
-          >
+
+          <Link href="/contact" className="btn-primary !px-10 !py-3.5 !rounded-lg">
             APPOINTMENT
           </Link>
         </div>
@@ -63,19 +165,74 @@ const Navbar = () => {
           className="lg:hidden text-2xl relative z-50"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          <div className={`w-8 h-1 mb-2 transition-all duration-300 rounded-full ${scrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"} ${mobileMenuOpen ? "rotate-45 translate-y-3" : ""}`}></div>
-          <div className={`w-8 h-1 mb-2 transition-all duration-300 rounded-full ${scrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"} ${mobileMenuOpen ? "opacity-0 scale-0" : ""}`}></div>
-          <div className={`w-8 h-1 transition-all duration-300 rounded-full ${scrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"} ${mobileMenuOpen ? "-rotate-45 -translate-y-3" : ""}`}></div>
+          <div
+            className={`w-8 h-1 mb-2 transition-all duration-300 rounded-full ${showScrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"
+              } ${mobileMenuOpen ? "rotate-45 translate-y-3" : ""}`}
+          />
+          <div
+            className={`w-8 h-1 mb-2 transition-all duration-300 rounded-full ${showScrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"
+              } ${mobileMenuOpen ? "opacity-0 scale-0" : ""}`}
+          />
+          <div
+            className={`w-8 h-1 transition-all duration-300 rounded-full ${showScrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"
+              } ${mobileMenuOpen ? "-rotate-45 -translate-y-3" : ""}`}
+          />
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-white z-40 transition-all duration-700 flex flex-col items-center justify-center gap-10 ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-10"
-        }`}
+        className={`fixed inset-0 bg-white z-40 transition-all duration-700 flex flex-col items-center justify-center gap-8 overflow-y-auto py-20 ${mobileMenuOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none translate-y-10"
+          }`}
       >
-        {navLinks.map((link, index) => (
+        <Link
+          href="/"
+          className="text-primary text-3xl font-black uppercase tracking-tighter hover:text-[#e11d48] transition-colors duration-300"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          Home
+        </Link>
+
+        {/* Mobile Products Accordion */}
+        <div className="flex flex-col items-center">
+          <button
+            className="text-primary text-3xl font-black uppercase tracking-tighter hover:text-[#f3a323] transition-colors duration-300 flex items-center gap-2"
+            onClick={() => setMobileProductsOpen((v) => !v)}
+          >
+            Products
+            <svg
+              className={`w-5 h-5 transition-transform duration-300 ${mobileProductsOpen ? "rotate-180" : ""
+                }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            className={`overflow-hidden transition-all duration-500 ${mobileProductsOpen ? "max-h-60 mt-4" : "max-h-0"
+              }`}
+          >
+            {productItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block text-center text-[#f3a323] text-xl font-bold py-2 hover:text-primary transition-colors duration-200"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setMobileProductsOpen(false);
+                }}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {navLinks.slice(1).map((link, index) => (
           <Link
             key={link.name}
             href={link.href}
@@ -86,6 +243,7 @@ const Navbar = () => {
             {link.name}
           </Link>
         ))}
+
         <Link
           href="/contact"
           className="bg-[#e11d48] text-white px-12 py-5 rounded-lg text-xl font-black uppercase tracking-widest shadow-xl"

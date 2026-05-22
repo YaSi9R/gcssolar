@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --primary: #0a2540;
@@ -180,9 +183,7 @@ a {
 }
 
 /* Fix for Overlapping Elements */
-section {
-  @apply relative w-full  clear-both bg-white;
-}
+
 
 /* Glassmorphism Refinement */
 .glass {
