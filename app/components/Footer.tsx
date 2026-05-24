@@ -106,21 +106,14 @@ const Footer = () => {
       {/* Floating "Enquire Now" Vertical Tab on Right Edge */}
       <Link
         href="/contact"
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] bg-[#e67e22] text-white font-bold uppercase tracking-wider py-5 px-3 rounded-l-lg shadow-2xl hover:bg-[#d35400] hover:pl-5 transition-all duration-300 cursor-pointer flex items-center justify-center text-xs"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] bg-[#e67e22] text-white font-bold uppercase tracking-wider !p-4 rounded-r-lg shadow-2xl hover:bg-[#d35400] hover:pl-5 transition-all duration-300 cursor-pointer flex items-center justify-center text-xs"
         style={{ writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}
       >
         Enquire Now
       </Link>
 
       {/* Floating Chat Bubble Widget on Bottom Right */}
-      <a
-        href="https://wa.me/918800012625"
-        className="fixed right-6 bottom-6 z-[100] w-14 h-14 bg-black rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 hover:bg-neutral-900 transition-all duration-300 cursor-pointer"
-      >
-        <svg className="w-7 h-7 fill-white text-black" viewBox="0 0 24 24">
-          <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
-        </svg>
-      </a>
+
     </footer>
   );
 };

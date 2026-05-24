@@ -43,7 +43,7 @@ const Navbar = () => {
     { name: "Dealers/Distributors", href: "/dealers" },
   ];
 
-  const showScrolled = scrolled || !isHome;
+  const showScrolled = true;
 
   const linkClass = `text-sm font-black uppercase tracking-[0.2em] relative group py-2 transition-all duration-300 ${showScrolled ? "!text-primary" : "!text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
     }`;
@@ -59,7 +59,8 @@ const Navbar = () => {
           <img
             src="/loo.png"
             alt="GCS SOLAR"
-            className={`h-12 md:h-14 w-auto transition-all duration-300 ${showScrolled ? "" : "brightness-0 invert"
+            // brightness-0 invert
+            className={`h-12 md:h-14 w-auto transition-all duration-300 ${showScrolled ? "" : ""
               }`}
           />
         </Link>
