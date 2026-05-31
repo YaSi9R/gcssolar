@@ -35,7 +35,7 @@ export default function Home() {
       <Footer />
       
       {/* Floating Appointment Button for Mobile */}
-      <div className="fixed bottom-6 right-6 z-50 lg:hidden">
+      <div className="fixed !bottom-6 !right-6 z-50 lg:hidden">
         <a
           href="/contact"
           className="bg-[#e11d48] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(225,29,72,0.4)] animate-bounce"

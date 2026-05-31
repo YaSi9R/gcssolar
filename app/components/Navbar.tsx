@@ -45,12 +45,12 @@ const Navbar = () => {
 
   const showScrolled = true;
 
-  const linkClass = `text-sm font-black uppercase tracking-[0.2em] relative group py-2 transition-all duration-300 ${showScrolled ? "!text-primary" : "!text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+  const linkClass = `text-sm font-black uppercase tracking-[0.2em] relative group !py-2 transition-all duration-300 ${showScrolled ? "!text-primary" : "!text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
     }`;
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${showScrolled ? "glass py-3 md:py-3.5 shadow-md" : "bg-transparent py-5 md:py-6"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${showScrolled ? "glass !py-3 md:!py-3.5 shadow-md" : "bg-transparent !py-5 md:!py-6"
         }`}
     >
       <div className="container-custom flex items-center justify-between">
@@ -66,16 +66,17 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-10">
-
-
+        <div className="hidden lg:flex items-center !gap-10">
 
           {/* Products Dropdown */}
-          <div className="relative" ref={dropdownRef}>
+          <div
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={() => setProductsOpen(true)}
+            onMouseLeave={() => setProductsOpen(false)}
+          >
             <button
-              className={`${linkClass} flex items-center gap-2 cursor-pointer bg-transparent border-none outline-none`}
-              onMouseEnter={() => setProductsOpen(true)}
-              onMouseLeave={() => setProductsOpen(false)}
+              className={`${linkClass} flex items-center !gap-2 cursor-pointer bg-transparent border-none outline-none`}
               onClick={() => setProductsOpen((v) => !v)}
               aria-expanded={productsOpen}
               aria-haspopup="true"
@@ -112,17 +113,17 @@ const Navbar = () => {
               />
             </button>
 
+            {/* Invisible bridge prevents gap from closing the dropdown */}
+            <div className="absolute top-full left-0 w-full h-3" />
+
             {/* Dropdown Panel */}
             <div
-              onMouseEnter={() => setProductsOpen(true)}
-              onMouseLeave={() => setProductsOpen(false)}
-              className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 transition-all duration-300 origin-top ${productsOpen
+              className={`absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-72 transition-all duration-300 origin-top ${productsOpen
                 ? "opacity-100 scale-y-100 pointer-events-auto"
                 : "opacity-0 scale-y-95 pointer-events-none"
                 }`}
             >
-              {/* Arrow tip */}
-              <div className="bg-white rounded-2xl shadow-[0_15px_50px_rgba(10,37,64,0.15)] overflow-hidden border border-gray-100 !p-2 space-y-1">
+              <div className="bg-white rounded-2xl shadow-[0_15px_50px_rgba(10,37,64,0.15)] overflow-hidden border border-gray-100 !p-2 !space-y-1">
                 {productItems.map((item) => (
                   <Link
                     key={item.href}
@@ -163,15 +164,15 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-2xl relative z-50"
+          className="lg:hidden text-2xl relative z-[210]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <div
-            className={`w-8 h-1 mb-2 transition-all duration-300 rounded-full ${showScrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"
+            className={`w-8 h-1 !mb-2 transition-all duration-300 rounded-full ${showScrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"
               } ${mobileMenuOpen ? "rotate-45 translate-y-3" : ""}`}
           />
           <div
-            className={`w-8 h-1 mb-2 transition-all duration-300 rounded-full ${showScrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"
+            className={`w-8 h-1 !mb-2 transition-all duration-300 rounded-full ${showScrolled || mobileMenuOpen ? "bg-primary" : "bg-white shadow-lg"
               } ${mobileMenuOpen ? "opacity-0 scale-0" : ""}`}
           />
           <div
@@ -183,28 +184,28 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-white z-40 transition-all duration-700 flex flex-col items-center justify-center gap-8 overflow-y-auto py-20 ${mobileMenuOpen
+        className={`fixed inset-0 bg-white z-[200] transition-all duration-700 flex flex-col items-center justify-start sm:justify-center !gap-6 sm:!gap-8 overflow-y-auto !py-16 sm:!py-20 !px-6 w-full ${mobileMenuOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none translate-y-10"
           }`}
       >
         <Link
           href="/"
-          className="text-primary text-3xl font-black uppercase tracking-tighter hover:text-[#e11d48] transition-colors duration-300"
+          className="text-primary text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight sm:tracking-tighter hover:text-[#e11d48] transition-colors duration-300 text-center w-full !px-4"
           onClick={() => setMobileMenuOpen(false)}
         >
           Home
         </Link>
 
         {/* Mobile Products Accordion */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center w-full !px-4">
           <button
-            className="text-primary text-3xl font-black uppercase tracking-tighter hover:text-[#f3a323] transition-colors duration-300 flex items-center gap-2"
+            className="text-primary text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight sm:tracking-tighter hover:text-[#f3a323] transition-colors duration-300 flex items-center justify-center !gap-2 w-full text-center"
             onClick={() => setMobileProductsOpen((v) => !v)}
           >
             Products
             <svg
-              className={`w-5 h-5 transition-transform duration-300 ${mobileProductsOpen ? "rotate-180" : ""
+              className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 ${mobileProductsOpen ? "rotate-180" : ""
                 }`}
               fill="none"
               stroke="currentColor"
@@ -214,14 +215,14 @@ const Navbar = () => {
             </svg>
           </button>
           <div
-            className={`overflow-hidden transition-all duration-500 ${mobileProductsOpen ? "max-h-60 mt-4" : "max-h-0"
+            className={`overflow-hidden transition-all duration-500 ${mobileProductsOpen ? "max-h-60 !mt-4" : "max-h-0"
               }`}
           >
             {productItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block text-center text-[#f3a323] text-xl font-bold py-2 hover:text-primary transition-colors duration-200"
+                className="block text-center text-[#f3a323] text-base sm:text-xl font-bold !py-2 hover:text-primary transition-colors duration-200"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setMobileProductsOpen(false);
@@ -237,7 +238,7 @@ const Navbar = () => {
           <Link
             key={link.name}
             href={link.href}
-            className="text-primary text-3xl font-black uppercase tracking-tighter hover:text-[#e11d48] transition-colors duration-300"
+            className="text-primary text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight sm:tracking-tighter hover:text-[#e11d48] transition-colors duration-300 text-center w-full !px-4"
             style={{ transitionDelay: `${index * 100}ms` }}
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -247,7 +248,7 @@ const Navbar = () => {
 
         <Link
           href="/contact"
-          className="bg-[#e11d48] text-white px-12 py-5 rounded-lg text-xl font-black uppercase tracking-widest shadow-xl"
+          className="bg-[#e11d48] text-white !px-10 sm:!px-12 !py-4 sm:!py-5 rounded-lg text-base sm:text-xl font-black uppercase tracking-widest shadow-xl text-center"
           onClick={() => setMobileMenuOpen(false)}
         >
           APPOINTMENT

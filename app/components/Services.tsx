@@ -32,7 +32,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 md:py-32 bg-white">
+    <section id="services" className="!py-24 md:!py-32 bg-white">
       <div className="container-custom">
         {/* Centered Header Section */}
         <div className="flex flex-col items-center justify-center text-center w-full  !my-12">
@@ -42,13 +42,13 @@ const Services = () => {
             viewport={{ once: true }}
             className="max-w-4xl flex flex-col items-center"
           >
-            <span className="text-[#e11d48] font-black tracking-[0.5em] uppercase text-[20px] mb-4 block">
+            <span className="text-[#e11d48] font-black tracking-[0.5em] uppercase text-[20px] !mb-4 block">
               WHAT WE OFFER
             </span>
-            <h2 className="text-2xl md:text-5xl font-black text-primary mb-8 uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl md:text-5xl font-black text-primary !mb-8 uppercase tracking-tighter leading-none">
               Solar Solutions For Every Need
             </h2>
-            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-10 !mt-2">
+            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed !mb-10 !mt-2">
               From small rooftops to massive industrial plants, we provide end-to-end solar solutions tailored to your specific energy requirements.
             </p>
             <div className="w-24 h-2 bg-[#e11d48] rounded-full shadow-[0_4px_12px_rgba(225,29,72,0.3)]"></div>
@@ -56,7 +56,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid with proper spacing */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 !gap-10">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -75,23 +75,23 @@ const Services = () => {
                 />
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors duration-500"></div>
                 {/* Icon Overlay */}
-                <div className="absolute bottom-6 left-6 bg-[#e11d48] p-4 rounded-2xl shadow-xl text-white transform transition-transform group-hover:scale-110">
+                <div className="absolute !bottom-6 !left-6 bg-[#e11d48] !p-4 rounded-2xl shadow-xl text-white transform transition-transform group-hover:scale-110">
                   <service.icon className="w-7 h-7" />
                 </div>
               </div>
 
               {/* Content Container */}
-              <div className="p-10 flex flex-col flex-grow">
-                <h3 className="text-2xl font-black text-primary mb-4 group-hover:text-[#e11d48] transition-colors uppercase tracking-tight">
+              <div className="!p-10 flex flex-col flex-grow">
+                <h3 className="text-2xl font-black text-primary !mb-4 group-hover:text-[#e11d48] transition-colors uppercase tracking-tight">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground mb-8 line-clamp-3 leading-relaxed text-sm font-medium">
+                <p className="text-muted-foreground !mb-8 line-clamp-3 leading-relaxed text-sm font-medium">
                   {service.description}
                 </p>
-                <div className="mt-auto">
+                <div className="!mt-auto">
                   <a
                     href="/contact"
-                    className="inline-flex items-center gap-2 text-[#e11d48] font-black uppercase tracking-widest text-xs group/btn hover:gap-4 transition-all"
+                    className="inline-flex items-center !gap-2 text-[#e11d48] font-black uppercase tracking-widest text-xs group/btn hover:gap-4 transition-all"
                   >
                     Learn More
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

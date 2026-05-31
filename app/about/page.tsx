@@ -19,7 +19,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center w-full"
           >
-            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 drop-shadow-2xl">
               About GCS Group
             </h1>
             <p className="text-xl !pb-8 md:text-2xl text-white/80 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-lg">

@@ -46,7 +46,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="py-32 bg-white">
+      <div className="!py-20 md:!py-32 bg-white">
         <div className="container-custom">
           <Contact />
         </div>
@@ -55,9 +55,9 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="!py-24 bg-gray-50 relative">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-black text-primary mb-4 uppercase tracking-tight">Visit Our Headquarters</h3>
-            <div className="w-16 h-1.5 bg-[#e11d48] mx-auto rounded-full mb-6"></div>
+          <div className="text-center !mb-16">
+            <h3 className="text-4xl font-black text-primary !mb-4 uppercase tracking-tight">Visit Our Headquarters</h3>
+            <div className="w-16 h-1.5 bg-[#e11d48] mx-auto rounded-full !mb-6"></div>
             <p className="text-muted-foreground text-lg">Located in the heart of Gurgaon&apos;s business hub.</p>
           </div>
           <div className="w-full h-[600px] bg-white shadow-[0_30px_100px_rgba(0,0,0,0.12)] rounded-[4rem] border border-gray-100 overflow-hidden group">

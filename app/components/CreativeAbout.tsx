@@ -23,7 +23,7 @@ const CreativeAbout = () => {
       </div>
 
       <div className="container-custom">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center !gap-16 lg:!gap-24">
           
           {/* Image Side with Overlapping Box */}
           <motion.div 
@@ -37,7 +37,7 @@ const CreativeAbout = () => {
               <img 
                 src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1200" 
                 alt="Solar Energy" 
-                className="w-full h-[550px] object-cover"
+                className="w-full h-[320px] sm:h-[550px] object-cover"
               />
             </div>
             
@@ -47,19 +47,19 @@ const CreativeAbout = () => {
               whileInView={{ scale: 1, opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8, type: "spring" }}
               viewport={{ once: true }}
-              className="absolute -bottom-12 -left-6 md:-left-12 bg-[#e11d48] p-12 rounded-[2rem] shadow-[0_20px_60px_rgba(225,29,72,0.4)] z-20 text-white text-center min-w-[280px]"
+              className="absolute -bottom-8 -left-4 md:-left-12 bg-[#e11d48] !p-6 md:!p-12 rounded-[2rem] shadow-[0_20px_60px_rgba(225,29,72,0.4)] z-20 text-white text-center min-w-[200px] md:min-w-[280px]"
             >
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center !mb-4 md:!mb-6">
                 <motion.div 
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ repeat: Infinity, duration: 2 }}
-                  className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center"
+                  className="w-12 h-12 md:w-20 md:h-20 rounded-full bg-white/20 flex items-center justify-center"
                 >
-                  <Lightbulb className="w-10 h-10 text-white fill-white/30" />
+                  <Lightbulb className="w-6 h-6 md:w-10 md:h-10 text-white fill-white/30" />
                 </motion.div>
               </div>
-              <div className="text-7xl font-black mb-2 tracking-tighter">10</div>
-              <div className="text-xl font-black uppercase tracking-[0.2em] leading-tight">
+              <div className="text-4xl md:text-7xl font-black !mb-1 md:!mb-2 tracking-tighter">10</div>
+              <div className="text-sm md:text-xl font-black uppercase tracking-[0.2em] leading-tight">
                 Years of<br />Experience
               </div>
             </motion.div>
@@ -73,16 +73,16 @@ const CreativeAbout = () => {
             viewport={{ once: true }}
             className="lg:w-1/2"
           >
-            <span className="text-[#e11d48] font-black tracking-[0.2em] uppercase text-sm mb-4 block">
+            <span className="text-[#e11d48] font-black tracking-[0.2em] uppercase text-sm !mb-4 block">
               ABOUT US
             </span>
-            <h2 className="text-5xl md:text-6xl font-black text-primary mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-primary !mb-8 leading-tight">
               Welcome To <span className="text-[#e11d48]">GCS Group</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-lg text-muted-foreground !mb-6 leading-relaxed">
               GCS Group Solar was established in 2015 in Gurgaon, India, with a focus on developing Solar as a sustainable energy alternative in India. We&apos;ve been at the forefront of India&apos;s sustainable energy revolution, based in Gurgaon.
             </p>
-            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+            <p className="text-lg text-muted-foreground !mb-10 leading-relaxed">
               Our mission: Deliver immediate and lasting solar solutions, providing maximum energy and financial advantages to our clients. Today, we&apos;re a leading sustainable energy provider, driven by our unwavering faith in the sun&apos;s limitless potential to combat non-renewable energy issues. Join us on the path to a brighter, more sustainable future.
             </p>
             

@@ -15,7 +15,7 @@ const products = [
 
 const ProductGrid = () => {
   return (
-    <section className="py-24 md:py-32 bg-muted/30 relative">
+    <section className="!py-24 md:!py-32 bg-muted/30 relative">
       <div className="container-custom">
         {/* 
           Header Section using !pb-32 (Padding Bottom) instead of margin.
@@ -28,7 +28,7 @@ const ProductGrid = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center"
           >
-            <h2 className="epc-title mb-6">
+            <h2 className="epc-title !mb-6">
               ENGINEERING PROCUREMENT CONSTRUCTION
             </h2>
             <div className="w-24 h-2 bg-[#e11d48] rounded-full shadow-[0_4px_12px_rgba(225,29,72,0.3)]"></div>
@@ -38,7 +38,7 @@ const ProductGrid = () => {
         {/* Physical Spacer as a backup */}
         <div className="h-10 w-full block"></div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 !gap-8 lg:!gap-12 relative z-10">
           {products.map((product, index) => (
             <motion.div
               key={index}

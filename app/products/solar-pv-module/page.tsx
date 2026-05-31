@@ -210,21 +210,17 @@ export default function SolarPVModulePage() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      <div className="h-28 md:h-36 bg-white" />
+      <div className="!h-28 md:!h-36 bg-white" />
 
       {/* Hero Section */}
-      <section className="bg-white pt-4 pb-8 border-b border-gray-200">
-        <div
-          className="container-custom w-full"
-          style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "1100px" }}
-        >
+      <section className="bg-white !pt-4 !pb-8 border-b border-gray-200">
+        <div className="container-custom w-full !mx-auto !max-w-[1100px]">
           {/* Sales Enquiry Row */}
-          <div className="flex justify-end mb-2">
-            <div className="flex items-center gap-3">
-
+          <div className="flex justify-end !mb-2">
+            <div className="flex items-center !gap-3">
               <div className="text-right">
                 <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Sales Enquiries</p>
-                <p className="text-sm font-black text-[#e11d48]">+91 7240 444 666</p>
+                <p className="text-sm font-black text-[#e11d48]">+91-8800012625</p>
               </div>
             </div>
           </div>
@@ -234,9 +230,9 @@ export default function SolarPVModulePage() {
               <h1 className="text-3xl md:text-4xl font-black text-[#0a2540] uppercase tracking-tight">
                 Solar PV Module
               </h1>
-              <div className="w-20 h-1 bg-[#e11d48] mt-3" />
+              <div className="w-20 h-1 bg-[#e11d48] !mt-3" />
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
+            <div className="flex items-center !gap-2 text-sm text-gray-500 font-medium">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <span className="text-gray-400">&gt;</span>
               <span className="text-gray-700">Solar PV Module</span>
@@ -247,11 +243,8 @@ export default function SolarPVModulePage() {
 
       {/* About Section */}
       <section className="!py-16 bg-white">
-        <div
-          className="container-custom w-full"
-          style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "1100px" }}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="container-custom w-full !mx-auto !max-w-[1100px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 !gap-8 lg:!gap-12 items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -259,7 +252,7 @@ export default function SolarPVModulePage() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-7"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#e11d48]  leading-snug" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#e11d48] leading-snug" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
                 Introduction to GCS Solar PV Modules
               </h2>
               <p className="text-gray-600 leading-relaxed !mb-5 text-[15px]">
@@ -270,7 +263,7 @@ export default function SolarPVModulePage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex !p-2  items-center gap-2 bg-[#e11d48] !text-white font-bold text-sm  rounded-full shadow-md hover:bg-[#e11d48] hover:-translate-y-0.5 transition-all duration-300"
+                className="inline-flex !px-6 !py-3 items-center !gap-2 bg-[#e11d48] !text-white font-bold text-sm rounded-full shadow-md hover:bg-[#e11d48] hover:-translate-y-0.5 transition-all duration-300"
               >
                 Enquire Now
               </Link>
@@ -294,16 +287,13 @@ export default function SolarPVModulePage() {
       </section>
 
       {/* Bifacial Description Section */}
-      <section className=" bg-white border-t border-gray-100">
-        <div
-          className="container-custom w-full"
-          style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "1100px" }}
-        >
+      <section className="bg-white border-t border-gray-100 !py-12">
+        <div className="container-custom w-full !mx-auto !max-w-[1100px]">
           <h2 className="text-2xl md:text-3xl font-bold text-[#e11d48] !mb-6 font-serif">
             High-Performance Solar PV Modules for Sustainable Energy
           </h2>
           <div
-            className="space-y-6 text-[#666] text-[15px] leading-[2] font-normal !mb-6"
+            className="!space-y-4 md:!space-y-6 text-[#666] text-[15px] leading-[2] font-normal !mb-6"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             <p>With capacities ranging from 500 Wp to 560 Wp, our PV modules are built to deliver outstanding performance across diverse residential, commercial, and industrial sites. Our designs ensure efficient conversion and maximize energy yield.</p>
@@ -317,10 +307,7 @@ export default function SolarPVModulePage() {
 
       {/* Technical Specifications */}
       <section className="!mb-[24px] bg-[#e8ecf1] !mt-4 !pt-[20px]">
-        <div
-          className="container-custom w-full !pt-[20px]"
-          style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "1100px" }}
-        >
+        <div className="container-custom w-full !pt-[20px] !mx-auto !max-w-[1100px]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -331,7 +318,7 @@ export default function SolarPVModulePage() {
             Explore Comprehensive Technical Specifications
           </motion.h2>
 
-          <div className="flex justify-center gap-6 flex-wrap !mb-[24px]">
+          <div className="flex justify-center !gap-6 flex-wrap !mb-[24px]">
             {specs.map((spec, i) => (
               <motion.a
                 href={`/${spec.pdf}`}
@@ -344,8 +331,8 @@ export default function SolarPVModulePage() {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="bg-white rounded-lg !p-8 !mb-[64px] text-center shadow-sm border border-gray-100 w-[220px] h-[240px] flex flex-col justify-between items-center hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
               >
-                <p className="text-[#e11d48] text-xs font-bold uppercase tracking-wider mb-2">{spec.label}</p>
-                <p className="text-2xl font-black text-primary mb-4">{spec.watt}</p>
+                <p className="text-[#e11d48] text-xs font-bold uppercase tracking-wider !mb-2">{spec.label}</p>
+                <p className="text-2xl font-black text-primary !mb-4">{spec.watt}</p>
                 {/* PDF Download Icon */}
                 <svg className="w-8 h-8 text-red-600 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
@@ -359,10 +346,7 @@ export default function SolarPVModulePage() {
 
       {/* Product Features - 2 Column Row Layout with Dividers */}
       <section className="!py-8 bg-white">
-        <div
-          className="container-custom w-full"
-          style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "1100px" }}
-        >
+        <div className="container-custom w-full !mx-auto !max-w-[1100px]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -372,7 +356,7 @@ export default function SolarPVModulePage() {
             Product Features
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 !gap-x-16 !px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 !gap-y-6 md:!gap-y-8 md:!gap-x-16 !px-6 md:!px-12">
             {features.map((f, i) => (
               <motion.div
                 key={i}
@@ -380,7 +364,7 @@ export default function SolarPVModulePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="flex items-start gap-5 !p-4  hover:bg-gray-50/50 px-2 transition-all duration-200"
+                className="flex items-start !gap-5 !p-4 hover:bg-gray-50/50 !px-2 transition-all duration-200"
               >
                 <div className="w-14 h-14 rounded-lg border border-[#e11d48]/30 flex items-center justify-center flex-shrink-0 group-hover:bg-[#e11d48]/10 transition-colors">
                   {f.icon}
@@ -394,10 +378,7 @@ export default function SolarPVModulePage() {
 
       {/* Accreditations Section */}
       <section className="!py-16 bg-[#e8ecf1]">
-        <div
-          className="container-custom w-full text-center"
-          style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "1100px" }}
-        >
+        <div className="container-custom w-full text-center !mx-auto !max-w-[1100px]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -406,10 +387,10 @@ export default function SolarPVModulePage() {
             <h2 className="text-xl md:text-2xl font-black text-primary uppercase tracking-wider !mb-6">
               Accreditations: Imprint of Trust!
             </h2>
-            <p className="text-gray-600 text-[16px] leading-9 max-w-[900px] mx-auto text-center !mb-14 !px-4">
+            <p className="text-gray-600 text-[16px] leading-9 max-w-[900px] !mx-auto text-center !mb-14 !px-4">
               Our solar panels are manufactured to meet globally recognized quality standards and are certified by leading national and international organizations. These certifications reflect our dedication to delivering reliable, efficient, and sustainable solar energy solutions with consistent performance and long-term durability.
             </p>
-            <div className="flex justify-center items-center gap-8 md:gap-14 flex-wrap">
+            <div className="flex justify-center items-center !gap-6 md:!gap-10 lg:!gap-14 flex-wrap">
               {certifications.map((cert, i) => (
                 <motion.div
                   key={i}
@@ -417,7 +398,7 @@ export default function SolarPVModulePage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex flex-col items-center gap-3 w-[120px]"
+                  className="flex flex-col items-center !gap-3 w-[120px]"
                 >
                   <div className="hover:scale-110 transition-transform duration-300">
                     {cert.svg}
@@ -439,17 +420,14 @@ export default function SolarPVModulePage() {
             className="w-full h-full object-cover brightness-[0.25]"
           />
         </div>
-        <div
-          className="container-custom w-full relative z-10 text-center"
-          style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "1100px" }}
-        >
+        <div className="container-custom w-full relative z-10 text-center !mx-auto !max-w-[1100px]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight !mb-14">Application</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 max-w-2xl mx-auto text-left !mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 !gap-x-16 !gap-y-4 md:!gap-y-6 max-w-2xl !mx-auto text-left !mb-12">
               {[
                 "Residential",
                 "Commercial",
@@ -464,7 +442,7 @@ export default function SolarPVModulePage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#e11d48] !text-white font-bold text-sm !p-4 py-3.5 rounded-full shadow-lg hover:bg-[#e11d48] hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center !gap-2 bg-[#e11d48] !text-white font-bold text-sm !px-6 !py-3.5 rounded-full shadow-lg hover:bg-[#e11d48] hover:-translate-y-0.5 transition-all duration-300"
             >
               Enquire Now
             </Link>
@@ -474,10 +452,7 @@ export default function SolarPVModulePage() {
 
       {/* FAQ Section */}
       <section className="!py-20 bg-white">
-        <div
-          className="container-custom w-full"
-          style={{ marginLeft: "auto", marginRight: "auto", maxWidth: "1100px" }}
-        >
+        <div className="container-custom w-full !mx-auto !max-w-[1100px]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -487,7 +462,7 @@ export default function SolarPVModulePage() {
             FAQ&apos;s
           </motion.h2>
 
-          <div className="space-y-4 max-w-4xl mx-auto">
+          <div className="!space-y-4 max-w-4xl !mx-auto">
             {faqs.map((faq, i) => (
               <div
                 key={i}
