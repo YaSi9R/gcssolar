@@ -1350,7 +1350,8 @@ export default function DealerApplyPage() {
               <h2 className="text-xl font-bold tracking-tight">GCS GROUP SOLAR</h2>
               <p className="text-xs font-semibold text-red-600 uppercase">EPC Solar</p>
               <p className="text-[10px] mt-1 max-w-sm">
-                Unit-111-A, Vipul Business Park, Sector -48, Sohna Road, Gurgaon-122018<br />
+                UnitNo.111 A, Vipul Business Park, Sector-48, Gurgaon( Haryana)-122018<br />
+                GST NO: 06ACZPJ6906B3ZE<br />
                 Email: info@gcsgroupsolar.com | Website: www.gcsgroupsolar.com<br />
                 Mobile: 8800012625
               </p>

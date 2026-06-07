@@ -41,7 +41,8 @@ const Contact = () => {
           {[
             { icon: PhoneCall, label: "Call Experts", value: "+91-8800012625", color: "bg-red-50", text: "text-red-600" },
             { icon: Mail, label: "Official Email", value: "info@gcssolar.com", color: "bg-blue-50", text: "text-blue-600" },
-            { icon: MapPin, label: "Visit Office", value: "Gurugram, Haryana", color: "bg-orange-50", text: "text-orange-600" },
+            { icon: MapPin, label: "Visit Office", value: "UnitNo.111 A, Vipul Business Park, Sector-48, Gurgaon( Haryana)-122018", color: "bg-orange-50", text: "text-orange-600" },
+            { icon: BadgeCheck, label: "GST NO", value: "06ACZPJ6906B3ZE", color: "bg-emerald-50", text: "text-emerald-600" },
           ].map((item, i) => (
             <motion.div
               key={i}

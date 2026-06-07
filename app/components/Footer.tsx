@@ -69,8 +69,12 @@ const Footer = () => {
               <li className="flex items-start !gap-4">
                 <MapPin className="w-6 h-6 text-[#e11d48] flex-shrink-0" />
                 <span className="text-white/60 text-sm">
-                  Unit No.221, JMD Megapolis, Sector 48 Gurgaon -122014
+                  UnitNo.111 A, Vipul Business Park, Sector-48, Gurgaon( Haryana)-122018
                 </span>
+              </li>
+              <li className="flex items-center !gap-4">
+                <div className="w-6 h-6 text-[#e11d48] flex items-center justify-center font-bold text-xs flex-shrink-0">GST</div>
+                <span className="text-white/60 text-sm font-bold">GST NO: 06ACZPJ6906B3ZE</span>
               </li>
               <li className="flex items-center !gap-4">
                 <Phone className="w-6 h-6 text-[#e11d48] flex-shrink-0" />
