@@ -20,7 +20,7 @@ const services = [
     title: "Industrial Solar",
     description: "Large-scale solar installations designed for heavy industry requirements and significant energy savings.",
     icon: Factory,
-    image: "https://images.unsplash.com/photo-1466611653911-95282fc3656b?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=600",
   },
   {
     title: "Solar EPC",

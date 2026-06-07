@@ -5,12 +5,24 @@ import { motion } from "framer-motion";
 const ClientsSlider = () => {
   // Using the public folder path directly for the image
   const placeholderImage = "/solar_part_1.png";
-  
-  const clientItems = [...Array(12)].map((_, i) => ({
-    id: i,
-    name: `Partner ${i + 1}`,
-    image: placeholderImage
-  }));
+
+  const brands = [
+    "/brand1.jpeg",
+    "/brand2.jpeg",
+    "/brand3.jpeg",
+    "/brand4.jpeg",
+    "/brand5.jpeg",
+
+  ];
+
+  const clientItems = [...Array(18)].map((_, i) => {
+    const brandIndex = i % brands.length;
+    return {
+      id: i,
+      name: `Brand ${brandIndex + 1}`,
+      image: brands[brandIndex]
+    };
+  });
 
   const duplicatedClients = [...clientItems, ...clientItems];
 
@@ -53,10 +65,13 @@ const ClientsSlider = () => {
                 key={i}
                 className="!mx-4 !px-10 !py-8 bg-white rounded-[2rem] border border-gray-100 flex items-center justify-center min-w-[240px] group hover:shadow-2xl hover:border-[#e11d48]/20 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
               >
-                <img 
-                  src={client.image} 
-                  alt={client.name} 
+                <img
+                  src={client.image}
+                  alt={client.name}
                   className="h-24 md:h-28 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    e.currentTarget.src = "/brand1.jpeg";
+                  }}
                 />
               </div>
             ))}

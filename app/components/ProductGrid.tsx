@@ -3,14 +3,16 @@
 import { motion } from "framer-motion";
 
 const products = [
-  { title: "RESIDENTIAL", desc: "Eco-friendly solar installations for homes.", image: "/solar_part_1.png" },
-  { title: "COMMERCIAL", desc: "High-efficiency power for businesses.", image: "/solar_part_2.png" },
-  { title: "INDUSTRIAL", desc: "Heavy-duty energy solutions for industry.", image: "/solar_part_3.png" },
-  { title: "EPC SOLUTIONS", desc: "Turnkey engineering and construction.", image: "/solar_part_4.png" },
-  { title: "SW-SLL14LED", desc: "Advanced LED solar street lighting.", image: "/solar_part_1.png" },
-  { title: "SW-SWL104LED", desc: "Compact wall-mounted solar lights.", image: "/solar_part_2.png" },
-  { title: "SW-SWL90LED", desc: "Energy-efficient outdoor lighting.", image: "/solar_part_3.png" },
-  { title: "SW-SWL120LED", desc: "High-intensity solar floodlights.", image: "/solar_part_4.png" },
+  { title: "SW-SLL14LED", desc: "Advanced spike-mounted solar garden & street light with warm white LED output.", image: "/SLL14LED.jpg" },
+  { title: "SW-SWL104LED", desc: "Slim panel-top solar wall light with 104 LEDs for wide area illumination.", image: "/SWL104LED.jpg" },
+  { title: "SW-SWL90LED", desc: "Compact solar outdoor wall light with 90 LEDs and motion-activated modes.", image: "/SWL90LED.jpg" },
+  { title: "SW-SWL120LED", desc: "High-intensity 120 LED solar floodlight ideal for large outdoor spaces.", image: "/SWL120LED.jpg" },
+  { title: "GCS – 20W", desc: "20W all-in-one integrated solar street light for commercial roadway lighting.", image: "/20W.jpg" },
+  { title: "GCS – 15W", desc: "15W all-in-one solar street light for residential lanes and pathways.", image: "/15W.jpg" },
+  { title: "GCS – 5W", desc: "5W compact all-in-one solar street light for narrow lanes and gardens.", image: "/5W..jpg" },
+  { title: "SW-SWL90LED-IR", desc: "Solar outdoor light with 90 LEDs and smart infrared remote control.", image: "/SWL90LED-IR.jpg" },
+  { title: "SW-SW104LED-IR", desc: "104 LED solar wall light with infrared remote for customizable brightness.", image: "/SW104LED-IR.jpg" },
+  { title: "GCS – 30W", desc: "30W heavy-duty all-in-one solar street light for highways and main roads.", image: "/GCS - 30W.jpg" },
 ];
 
 const ProductGrid = () => {
@@ -38,7 +40,7 @@ const ProductGrid = () => {
         {/* Physical Spacer as a backup */}
         <div className="h-10 w-full block"></div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 !gap-8 lg:!gap-12 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 !gap-8 lg:!gap-12 relative z-10">
           {products.map((product, index) => (
             <motion.div
               key={index}
